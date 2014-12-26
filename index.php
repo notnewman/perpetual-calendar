@@ -66,7 +66,7 @@ while ($counter < 13){
 			}
 	$counter +=1;
 }
-	echo"</select>&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"text\" NAME=\"yearblank\" SIZE=\"4\" maxlength=\"4\" value=\"".$year."\" onkeyup=\"pop(this)\" onchange=\"chgyear()\" autocomplete=\"off\">&nbsp;&nbsp;&nbsp;&nbsp;<input type=\"button\" VALUE=\"Today\" onclick=\"backtotoday()\"/><br><small><br></small><table><tr>";
+	echo"</select>&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"text\" NAME=\"yearblank\" style=\"font-size: 10pt; font-family: Arial; color: red;\" SIZE=\"4\" maxlength=\"4\" value=\"".$year."\" onkeyup=\"pop(this)\" onchange=\"chgyear()\" autocomplete=\"off\">&nbsp;&nbsp;&nbsp;&nbsp;<input type=\"button\" VALUE=\"Today\" onclick=\"backtotoday()\"/><br><small><br></small><table><tr>";
 	$counter = 2-$thefirst;
 	$lastday = $alldays[$month];
 //
