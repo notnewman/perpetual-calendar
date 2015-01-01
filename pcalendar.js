@@ -9,8 +9,12 @@ var formdata=document.getElementById("bigbox");
 var monthblank=formdata.elements[0].value;
 var yearblank=formdata.elements[1].value;
 var formact="./?preset=1&month="+monthblank+"&year="+yearblank;
-var passes = 2;
+var passes = 1;
 var thefirst = 7;
+var level = 0;
+var delay;
+var delay2;
+var delay3;
 	
 function chgyear(){
 chgyearormonth();
@@ -21,6 +25,7 @@ chgyearormonth();
 }
 
 function chgyearormonth(){
+$("#cbox").hide();
 monthblank=formdata.elements[0].value;
 yearblank=formdata.elements[1].value;
 formact="./?preset=1&month="+monthblank+"&year="+yearblank;
@@ -37,9 +42,9 @@ yearblank=thisyear;
 }
 setthefirst();
 paintgrid();
-
+$("#cbox").fadeIn(500);
 if (passes <=0 ){
-passes = 2;
+passes = 1;
 delay=setTimeout(function(){fresher()},3000);
 }
 passes =passes-1;
@@ -51,6 +56,10 @@ chgyearormonth();
 }
 }
 
+function unhidegrid(){
+$("#cbox").show();
+}
+
 function backtotoday(){
 formact="./";
 document.getElementById('bigbox').action=formact;
@@ -58,6 +67,7 @@ fresher();
 }
 
 function fresher(){
+$("#cbox").finish();
 var thisform = document.getElementById("bigbox");
 thisform.submit();
 }
@@ -81,7 +91,6 @@ if (leapornot == 0){
 else {
 	alldays = Array(55,31,28,31,30,31,30,31,31,30,31,30,31);}
 	thefirst = newyearsday;
-
 var	mcounter = 1;
 if (monthblank != 1){
 	while (mcounter < monthblank){
@@ -92,13 +101,7 @@ if (monthblank != 1){
 if (thefirst == 0) {thefirst=7;}
 	}
 }
-// function setmonth(){
-// var ipick = document.getElementsById('monthpick').value;
-// if (ipick !=null){
-// thismonth = ipick;
-// }else {thismonth = "5";}
-// document.getElementById('fb').innerHTML=thismonth;
-// }
+
 function paintgrid(){
 var boxbox = "";
 var box = 1;
@@ -136,6 +139,7 @@ var formdata=document.getElementById("bigbox");
 var monthblank=formdata.elements[0].value;
 var yearblank=formdata.elements[1].value;
 var formact="./?preset=1&month="+monthblank+"&year="+yearblank;
-var passes = 2;
+var passes = 1;
 var thefirst = 7;
+var delay2;
 }
