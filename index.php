@@ -3,6 +3,7 @@
 <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>Perpetual Calendar for the years 1753 - 3000</title>
 <meta content="NosyMotorist" name="author"><script src = "../jquery/jquery.min.js"></script><! Point this at any jquery instance><script type='text/javascript'>$(document).ready(function(){unhidegrid()});</script>
 
+
 </head>
 <body ONLOAD="onload="init()" style="color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);" alink="#000099" link="#000099" vlink="#990099">
 <?php
@@ -58,17 +59,17 @@ if ($thefirst == 0) {$thefirst=7;}
 <td style="width: 579px; vertical-align: top; align: center; font-size: 14pt; font-family: Arial;"><br><table><tr><td style="width: 25%;"></td><td>
 <! onchange=\"chgmonth()\">
 <?php 
-	echo "<form action=\"./\" name=\"bigbox\" id=\"bigbox\" method=\"post\"><select id=\"monthblank\" onchange=\"chgmonth()\">\n";
+	echo "<form action=\"./\" name=\"bigbox\" id=\"bigbox\" method=\"post\"><input type=\"button\" VALUE=\"<-\" onclick=\"lastmonth()\"/>&nbsp;&nbsp;&nbsp;&nbsp;<select id=\"monthblank\" onchange=\"chgmonth()\">\n";
 	$counter = 1;
 while ($counter < 13){
 	if ($counter == $month){
-		echo "\t<option value=\"$counter\" selected> $months[$counter] </option>\n";
+		echo "\t<option value=\"$counter\" id=\"sel$counter\" selected> $months[$counter] </option>\n";
 	}else	{
-		echo "\t<option value=\"$counter\"> $months[$counter] </option>\n";
+		echo "\t<option value=\"$counter\" id=\"sel$counter\"> $months[$counter] </option>\n";
 			}
 	$counter +=1;
 }
-	echo"</select>&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"text\" NAME=\"yearblank\" style=\"font-size: 10pt; font-family: Arial; color: red;\" SIZE=\"4\" maxlength=\"4\" value=\"".$year."\" onkeyup=\"pop(this)\" onchange=\"chgyear()\" autocomplete=\"off\">&nbsp;&nbsp;&nbsp;&nbsp;<input type=\"button\" VALUE=\"Today\" onclick=\"backtotoday()\"/><br><small><br></small><table id = \"cbox\" style = \"display: none;\"><tr>";
+	echo"</select>&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"text\" NAME=\"yearblank\" style=\"font-size: 10pt; font-family: Arial; color: red;\" SIZE=\"4\" maxlength=\"4\" value=\"".$year."\" onkeyup=\"pop(this)\" onchange=\"chgyear()\" autocomplete=\"off\">&nbsp;&nbsp;&nbsp;&nbsp;<input type=\"button\" VALUE=\"Today\" onclick=\"backtotoday()\"/>&nbsp;&nbsp;&nbsp;&nbsp;<input type=\"button\" VALUE=\"->\" onclick=\"nextmonth()\"/><br><small><br></small><table id = \"cbox\" style = \"display: none;\"><tr>";
 	$counter = 2-$thefirst;
 	$lastday = $alldays[intval($month)];
 //
