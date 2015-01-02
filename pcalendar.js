@@ -6,8 +6,10 @@ var leapornot = 3;
 var newyearsday = 7;	
 var lastday = 31;	
 var formdata=document.getElementById("bigbox");	
-var monthblank=formdata.elements[0].value;
-var yearblank=formdata.elements[1].value;
+var monthblank=formdata.elements[1].value;
+var yearblank=formdata.elements[2].value;
+var monthpush;
+var yearpush;
 var formact="./?preset=1&month="+monthblank+"&year="+yearblank;
 var passes = 1;
 var thefirst = 7;
@@ -26,8 +28,8 @@ chgyearormonth();
 
 function chgyearormonth(){
 $("#cbox").hide();
-monthblank=formdata.elements[0].value;
-yearblank=formdata.elements[1].value;
+monthblank=formdata.elements[1].value;
+yearblank=formdata.elements[2].value;
 formact="./?preset=1&month="+monthblank+"&year="+yearblank;
 document.getElementById('bigbox').action=formact;
 if (!(monthblank >= 13 && monthblank <= 0)){ 
@@ -66,8 +68,37 @@ document.getElementById('bigbox').action=formact;
 fresher();
 }
 
+function nextmonth(){
+monthblank=formdata.elements[1].value;
+yearblank=formdata.elements[2].value;
+var msel = "sel"+monthblank;
+monthblank =parseInt(monthblank)+1;
+if (monthblank >=13){
+monthblank = 1;
+yearblank = parseInt(yearblank)+1;
+}
+formact="./?preset=1&month="+monthblank+"&year="+yearblank;
+document.getElementById('bigbox').action=formact;
+fresher();
+}
+
+function lastmonth(){
+monthblank=formdata.elements[1].value;
+yearblank=formdata.elements[2].value;
+var msel = "sel"+monthblank;
+monthblank =parseInt(monthblank)-1;
+var wtw = monthblank;
+if (monthblank <=0){
+monthblank = 12;
+yearblank = parseInt(yearblank)-1;
+}
+formact="./?preset=1&month="+monthblank+"&year="+yearblank;
+document.getElementById('bigbox').action=formact;
+fresher();
+}
+
 function fresher(){
-$("#cbox").finish();
+//$("#cbox").finish();
 var thisform = document.getElementById("bigbox");
 thisform.submit();
 }
@@ -138,6 +169,8 @@ var lastday = 31;
 var formdata=document.getElementById("bigbox");	
 var monthblank=formdata.elements[0].value;
 var yearblank=formdata.elements[1].value;
+var monthpush = monthblank;
+var yearpush = yearblank;
 var formact="./?preset=1&month="+monthblank+"&year="+yearblank;
 var passes = 1;
 var thefirst = 7;
