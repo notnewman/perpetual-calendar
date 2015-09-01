@@ -116,8 +116,9 @@ if (yearblank>2700){leapyears=leapyears-1};
 if (yearblank>2900){leapyears=leapyears-1};
 newyearsday = 1+((((yearblank-1752)*365)+leapyears)%7);
 var index = monthblank;
+var century = ((yearblank%100 == 0)&&(yearblank%400 != 0));
 leapornot = (yearblank%4);
-if (leapornot == 0){
+if ((leapornot == 0) && (!century)){
 	alldays = Array(55,31,29,31,30,31,30,31,31,30,31,30,31);}
 else {
 	alldays = Array(55,31,28,31,30,31,30,31,31,30,31,30,31);}
